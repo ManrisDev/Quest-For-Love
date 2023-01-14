@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Старт");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void Settings()
