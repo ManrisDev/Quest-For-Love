@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LoveBar : MonoBehaviour
 {
     [SerializeField] private Image lovebar;
     [SerializeField] private float fill;
+    [SerializeField] UnityEvent Pause;
+    [SerializeField] UnityEvent Play;
 
-    private bool onPause = true;
-    private float fillStop;
-
+    public bool onPause = false;
     void Start()
     {
         fill = 1f;
@@ -17,25 +18,9 @@ public class LoveBar : MonoBehaviour
 
     void Update()
     {
-        if (!onPause)
+        if (onPause == false)
         {
-            lovebar.fillAmount = fill;
-            fill -= 0.05f * Time.deltaTime;
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                IncreaseLove();
-            }
-        }
-        
-        if (onPause)
-        {
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            onPause = false;
+            DecreaseLove();
         }
 
     }
@@ -43,5 +28,21 @@ public class LoveBar : MonoBehaviour
     public void IncreaseLove()
     {
             fill += 0.3f;
+    }
+
+    public void DecreaseLove()
+    {
+        lovebar.fillAmount = fill;
+        fill -= 0.05f * Time.deltaTime;
+    }
+
+    public void StopDecrease()
+    {
+        onPause = true;
+    }
+
+    public void ContinueDecrease()
+    {
+        onPause = false;
     }
 }
