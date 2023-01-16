@@ -1,48 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class LoveBar : MonoBehaviour
 {
+    Cat cat;
+
     [SerializeField] private Image lovebar;
-    [SerializeField] private float fill;
-    [SerializeField] UnityEvent Pause;
-    [SerializeField] UnityEvent Play;
+    
+    private float fill;
+    private bool stopDecrease = false;
 
-    public bool onPause = false;
-    void Start()
-    {
-        fill = 1f;
-    }
+    private void Awake() =>  cat = GetComponent<Cat>();
 
+    void Start() => fill = cat.GetHeaalth() / 100;
 
     void Update()
     {
-        if (onPause == false)
-        {
+        if (stopDecrease == false) 
             DecreaseLove();
-        }
-
     }
 
     public void IncreaseLove()
     {
-            fill += 0.3f;
+        //fill += 0.3f;
     }
 
     public void DecreaseLove()
     {
         lovebar.fillAmount = fill;
-        fill -= 0.05f * Time.deltaTime;
+        fill -= 0.03f * Time.deltaTime;
     }
 
     public void StopDecrease()
     {
-        onPause = true;
+        stopDecrease = true;
     }
 
     public void ContinueDecrease()
     {
-        onPause = false;
+        stopDecrease = false;
     }
 }
