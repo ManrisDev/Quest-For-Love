@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 813c8898b0fe00f46bcd98665ad1ef4c
   - enabled: 1
-    path: Assets/Scenes/MainScene NIKITA)).unity
+    path: Assets/Scenes/NIKITA))MainScene.unity
     guid: 6a889ba6247dacc44b8cab9859f7e865
   - enabled: 1
     path: Assets/Scenes/Credits.unity

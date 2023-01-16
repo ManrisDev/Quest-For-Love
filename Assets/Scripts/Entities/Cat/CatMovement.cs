@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMovement : Entity
+public class CatMovement : Entity
 {
-    [Header("Characteristics")]
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpForce = 15f;
+    Cat cat;
 
     [Header("Events")]
     [SerializeField] private UnityEvent Dead;
@@ -29,26 +27,16 @@ public class PlayerMovement : Entity
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        cat = GetComponent<Cat>();
     }
 
     private void Update()
     {
         if (Input.GetButton("Horizontal"))
-        {
             Walk();
-        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
-        {
             Jump();
-        }
-
-        //Test
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Die();
-            //ChangeAnimationState(DIE);
-        }
     }
 
     private void FixedUpdate()
@@ -77,16 +65,16 @@ public class PlayerMovement : Entity
     private void Walk()
     {
         Vector3 direction = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, cat.GetWalkSpeed() * Time.deltaTime);
     }
 
     private void Jump()
     {
-        rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        rigidbody.AddForce(transform.up * cat.GetJumpForce(), ForceMode2D.Impulse);
         Jumped.Invoke();
     }
 
-    private void Die() => Dead.Invoke();
+    //private void Die() => Dead.Invoke();
 
     private void ChangeAnimationState(string newState)
     {

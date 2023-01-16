@@ -3358,6 +3358,7 @@ GameObject:
   - component: {fileID: 993001172}
   - component: {fileID: 993001171}
   - component: {fileID: 993001170}
+  - component: {fileID: 993001177}
   - component: {fileID: 993001175}
   - component: {fileID: 993001176}
   m_Layer: 0
@@ -3503,8 +3504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070447c9c0baf7147b924f2f82408421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  jumpForce: 10
   Dead:
     m_PersistentCalls:
       m_Calls:
@@ -3575,13 +3574,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lovebar: {fileID: 89073124}
   fill: 1
-  Pause:
-    m_PersistentCalls:
-      m_Calls: []
-  Play:
-    m_PersistentCalls:
-      m_Calls: []
-  onPause: 0
+--- !u!114 &993001177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993001169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21e679269553f74f97c4a909ad4686c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 40
+  walkSpeed: 5
+  runSpeed: 10
+  jumpForce: 10
 --- !u!1 &1003023266
 GameObject:
   m_ObjectHideFlags: 0
