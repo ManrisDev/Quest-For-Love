@@ -34,11 +34,15 @@ public class Settings : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
+        if (volume == -40)
+            volume = -100;
         musicVolume = volume;
     }
-    public void SetEffectsVolume(float effects)
+    public void SetEffectsVolume(float volume)
     {
-        effectVolume = effects;
+        if (volume == -40)
+            volume = -100;
+        effectVolume = volume;
     }
     
     public void SetQuality(int qualityIndex)
