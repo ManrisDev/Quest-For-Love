@@ -17,6 +17,7 @@ public class CatMovement : Entity
     private bool isGrounded => rigidbody.IsTouching(platform);
 
     private string currentState;
+    private float scale;
 
     const string IDLE = "cat_stopping";
     const string WALK = "cat_walk";
@@ -28,6 +29,11 @@ public class CatMovement : Entity
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         cat = GetComponent<Cat>();
+    }
+
+    private void Start()
+    {
+        scale = transform.localScale.x;
     }
 
     private void Update()
@@ -44,9 +50,9 @@ public class CatMovement : Entity
         float direction = Input.GetAxis("Horizontal");
 
         if (direction > 0)
-            transform.localScale = new Vector2(-1, transform.localScale.y);
+            transform.localScale = new Vector2(-scale, transform.localScale.y);
         else if (direction < 0)
-            transform.localScale = new Vector2(1, transform.localScale.y);
+            transform.localScale = new Vector2(scale, transform.localScale.y);
 
         if (isGrounded)
         {
