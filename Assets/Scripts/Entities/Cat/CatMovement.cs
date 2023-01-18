@@ -13,7 +13,7 @@ public class CatMovement : MonoBehaviour
 
     new Rigidbody2D rigidbody;
     Animator animator;
-    [SerializeField] VectorValue position;
+    //[SerializeField] VectorValue position;
 
     bool isGrounded => rigidbody.IsTouching(platform);
 
@@ -27,7 +27,7 @@ public class CatMovement : MonoBehaviour
 
     void Awake()
     {
-        transform.position = position.GetInitialValue();
+        //transform.position = position.GetInitialValue();
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         cat = GetComponent<Cat>();

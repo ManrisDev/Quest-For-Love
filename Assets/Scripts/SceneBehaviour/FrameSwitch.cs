@@ -3,7 +3,6 @@ using UnityEngine;
 public class FrameSwitch : MonoBehaviour
 {
     [SerializeField] GameObject activeFrame;
-    [SerializeField] Cat catPosition;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
