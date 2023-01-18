@@ -20,15 +20,15 @@ public class LoveBar : MonoBehaviour
             DecreaseLove();
     }
 
-    public void IncreaseLove()
+    public void IncreaseLove(float quantity)
     {
-        //fill += 0.3f;
+        fill += quantity;
     }
 
     public void DecreaseLove()
     {
         lovebar.fillAmount = fill;
-        fill -= 0.03f * Time.deltaTime;
+        fill -= 0.01f * Time.deltaTime;
     }
 
     public void StopDecrease()

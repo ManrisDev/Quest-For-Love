@@ -10,7 +10,7 @@ public class Training : MonoBehaviour
     int currentSentence = 0;
     int step = 1;
 
-    bool[] condition = new bool[3];
+    bool[] condition = new bool[4];
 
     private void Awake()
     {
@@ -28,12 +28,14 @@ public class Training : MonoBehaviour
         condition[0] = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow);
         condition[1] = Input.GetKeyDown(KeyCode.Space);
         condition[2] = Input.GetKeyDown(KeyCode.E);
+        condition[3] = Input.GetKeyDown(KeyCode.I);
 
-        if (condition[step - 1])
-        {
-            NextSentense();
-            step++;
-        }
+        if (step < 5)
+            if (condition[step - 1])
+                {
+                    NextSentense();
+                    step++;
+                }
     }
 
     public void NextSentense()

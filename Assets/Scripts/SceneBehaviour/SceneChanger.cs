@@ -19,11 +19,12 @@ public class SceneChanger : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name.Equals("MainScene"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("Cafe");
         }
         if (SceneManager.GetActiveScene().name.Equals("Cafe"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("MainScene");
+            GlobalVar.fromCafe = true;
         }
     }
 }

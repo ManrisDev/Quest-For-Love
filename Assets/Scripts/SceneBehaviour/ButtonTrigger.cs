@@ -10,7 +10,7 @@ public class ButtonTrigger : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            ChangeAnimationState("Button_On");
+            ChangeAnimationState("On");
         }
     }
 
@@ -18,7 +18,7 @@ public class ButtonTrigger : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            ChangeAnimationState("Button_Off");
+            ChangeAnimationState("Off");
         }
     }
 

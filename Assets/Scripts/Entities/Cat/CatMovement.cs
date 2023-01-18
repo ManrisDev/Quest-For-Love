@@ -7,12 +7,11 @@ public class CatMovement : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] UnityEvent Dead;
-    [SerializeField] UnityEvent Jumped;
 
     [SerializeField] ContactFilter2D platform;
 
     new Rigidbody2D rigidbody;
-    Animator animator;
+    //Animator animator;
     //[SerializeField] VectorValue position;
 
     bool isGrounded => rigidbody.IsTouching(platform);
@@ -29,13 +28,15 @@ public class CatMovement : MonoBehaviour
     {
         //transform.position = position.GetInitialValue();
         rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         cat = GetComponent<Cat>();
     }
 
     void Start()
     {
         scale = transform.localScale.x;
+        if (GlobalVar.fromCafe)
+            transform.position = new Vector3(178f, -2.78f, 0f);
     }
 
     void Update()
@@ -52,9 +53,9 @@ public class CatMovement : MonoBehaviour
         float direction = Input.GetAxis("Horizontal");
 
         if (direction > 0)
-            transform.localScale = new Vector2(-scale, transform.localScale.y);
-        else if (direction < 0)
             transform.localScale = new Vector2(scale, transform.localScale.y);
+        else if (direction < 0)
+            transform.localScale = new Vector2(-scale, transform.localScale.y);
 
         if (isGrounded)
         {
@@ -79,7 +80,6 @@ public class CatMovement : MonoBehaviour
     void Jump()
     {
         rigidbody.AddForce(transform.up * cat.GetJumpForce(), ForceMode2D.Impulse);
-        Jumped.Invoke();
     }
 
     //void Die() => Dead.Invoke();
@@ -90,7 +90,7 @@ public class CatMovement : MonoBehaviour
         if (currentState == newState) return;
 
         //play animation
-        animator.Play(newState);
+        //animator.Play(newState);
 
         //reassign the current state
         currentState = newState;

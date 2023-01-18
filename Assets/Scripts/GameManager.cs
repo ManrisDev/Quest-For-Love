@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !pause && !inventory)
             PauseGame();
 
+
         if (Input.GetKeyDown(KeyCode.I) && !pause && !inventory)
             Inventory();
     }
@@ -25,11 +26,13 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         pause = false;
+        Time.timeScale = 1;
         Play.Invoke();
     }
     public void PauseGame()
     {
         pause = true;
+        Time.timeScale = 0;
         Pause.Invoke();
     }
     
@@ -46,9 +49,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void Restart()
+    public void LoadEnd()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("KONCHA");
     }
 
     public void MainMenu()
