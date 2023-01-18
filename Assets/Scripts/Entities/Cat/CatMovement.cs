@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CatMovement : Entity
+public class CatMovement : MonoBehaviour
 {
     Cat cat;
 
