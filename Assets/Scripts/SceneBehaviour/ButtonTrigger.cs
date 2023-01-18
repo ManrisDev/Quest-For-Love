@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class ButtonTrigger : MonoBehaviour
 {
-    //[SerializeField] GameObject activeFrame;
-    //[SerializeField] GameObject[] otherFrames;
     [SerializeField] Animator buttonAnimator;
-    
+
     string currentState;
     
     private void OnTriggerEnter2D(Collider2D collider)
@@ -13,11 +11,6 @@ public class ButtonTrigger : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             ChangeAnimationState("Button_On");
-            /*activeFrame.SetActive(true);
-            foreach(GameObject frame in otherFrames)
-            {
-                frame.SetActive(false);
-            }*/
         }
     }
 

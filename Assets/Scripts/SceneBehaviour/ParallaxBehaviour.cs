@@ -22,8 +22,8 @@ public class ParallaxBehaviour : MonoBehaviour
         if (disableVerticalParallax)
             delta.y = 0f;
 
-        targetPreviousPosition= followingTarget.position;
+        targetPreviousPosition = followingTarget.position;
 
-        transform.position += delta * parallaxStrength;
+        transform.position -= delta * parallaxStrength;
     }
 }

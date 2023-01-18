@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
 
     private void Awake()
     {
-        field = GetComponent<TextMeshProUGUI>();
+        field = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Start()
