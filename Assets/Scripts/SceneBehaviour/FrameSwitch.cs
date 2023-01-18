@@ -17,8 +17,6 @@ public class FrameSwitch : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //if (activeFrame.name.Equals("StartFrame"))
-                //catPosition.transform.position = new Vector3(-41.33f, -2.09f, 0f); 
             activeFrame.SetActive(false);
         }
     }
